@@ -4,6 +4,8 @@ var uglify = require('gulp-uglify');
 
 var sass = require('gulp-ruby-sass');
 
+var livereolad = require('gulp-livereload');
+
 //var plumber = require('gulp-plumber');
 
 function errorlog(error){
@@ -28,10 +30,12 @@ gulp.task('styles', function(){
 			sytle: 'compressed'}
 		))
 		.on('error', errorlog)
-		.pipe(gulp.dest('mincss/'));	
+		.pipe(gulp.dest('mincss/'))
+		.pipe(livereolad());	
 })
 
 gulp.task('watch', function(){
+	var server =livereolad();
 	gulp.watch('js/*.js', ['scripts'])
 	gulp.watch('scss/**/*.scss', ['styles'])
 });
