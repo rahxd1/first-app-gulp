@@ -8,4 +8,8 @@ gulp.task('scripts', function(){
 	gulp.src('js/*.js').pipe(uglify()).pipe(gulp.dest('minjs'));	
 })
 
-gulp.task('default', ['scripts']);
+gulp.task('watch', function(){
+	gulp.watch('js/*.js', ['scripts'])
+});
+
+gulp.task('default', ['scripts', 'watch']);
