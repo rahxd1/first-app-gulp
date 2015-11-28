@@ -2,7 +2,7 @@ var gulp = require('gulp');
 
 var uglify = require('gulp-uglify');
 
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 
 var livereolad = require('gulp-livereload');
 
