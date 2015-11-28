@@ -34,6 +34,7 @@ gulp.task('styles', function(){
 			sytle: 'compressed'}
 		))
 		.on('error', errorlog)
+		.pipe(prefix('last 2 versions'))
 		.pipe(gulp.dest('mincss/'))
 		.pipe(livereolad());	
 })
