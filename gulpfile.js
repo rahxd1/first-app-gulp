@@ -6,6 +6,8 @@ var sass = require('gulp-ruby-sass');
 
 var livereolad = require('gulp-livereload');
 
+var imagemin = require('gulp-imagemin');
+
 //var plumber = require('gulp-plumber');
 
 function errorlog(error){
@@ -32,6 +34,13 @@ gulp.task('styles', function(){
 		.on('error', errorlog)
 		.pipe(gulp.dest('mincss/'))
 		.pipe(livereolad());	
+})
+
+gulp.task('image', function(){
+	gulp.src('img/*')
+		.pipe(imagemin())
+		//.pipe(gulp.dest('build/img/'));
+		.pipe(gulp.dest('img/')); // Comprimir las imagenes en la misma carpeta	
 })
 
 gulp.task('watch', function(){
