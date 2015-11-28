@@ -4,16 +4,31 @@ var uglify = require('gulp-uglify');
 
 var sass = require('gulp-ruby-sass');
 
-var plumber = require('gulp-plumber');
+//var plumber = require('gulp-plumber');
+
+function errorlog(error){
+	console.error.bind(error);
+	this.emit('end');
+}
 
 // Tasks
 
 gulp.task('scripts', function(){
-	gulp.src('js/*.js').pipe(plumber()).pipe(uglify()).pipe(gulp.dest('minjs'));	
+	gulp.src('js/*.js')
+		//.pipe(plumber())
+		.pipe(uglify())
+		.on('error', errorlog)
+		.pipe(gulp.dest('minjs'));	
 })
 
 gulp.task('styles', function(){
-	gulp.src('scss/**/*.scss').pipe(plumber()).pipe(sass({sytle: 'compressed'})).pipe(gulp.dest('mincss/'));	
+	gulp.src('scss/**/*.scss')
+		//.pipe(plumber())
+		.pipe(sass({
+			sytle: 'compressed'}
+		))
+		.on('error', errorlog)
+		.pipe(gulp.dest('mincss/'));	
 })
 
 gulp.task('watch', function(){
