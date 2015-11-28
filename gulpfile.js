@@ -8,7 +8,9 @@ var livereolad = require('gulp-livereload');
 
 var imagemin = require('gulp-imagemin');
 
-var prefix = require('gulp-autoprefixer')
+var prefix = require('gulp-autoprefixer');
+
+var jade = require('gulp-jade');
 
 //var plumber = require('gulp-plumber');
 
@@ -25,7 +27,7 @@ gulp.task('scripts', function(){
 		.pipe(uglify())
 		.on('error', errorlog)
 		.pipe(gulp.dest('minjs'));	
-})
+});
 
 gulp.task('styles', function(){
 	gulp.src('scss/**/*.scss')
@@ -37,19 +39,29 @@ gulp.task('styles', function(){
 		.pipe(prefix('last 2 versions'))
 		.pipe(gulp.dest('mincss/'))
 		.pipe(livereolad());	
-})
+});
 
 gulp.task('image', function(){
 	gulp.src('img/*')
 		.pipe(imagemin())
 		//.pipe(gulp.dest('build/img/'));
 		.pipe(gulp.dest('img/')); // Comprimir las imagenes en la misma carpeta	
-})
+});
+
+gulp.task('jade-compile', function(){
+	return gulp.src('tamplates/**/*.jade')
+		.pipe(jade ({
+					pretty:true
+				}))
+});
+
+gulp.task('jade-watch', ['jade-compile'])
 
 gulp.task('watch', function(){
 	var server =livereolad();
 	gulp.watch('js/*.js', ['scripts'])
 	gulp.watch('scss/**/*.scss', ['styles'])
+	gulp.watch('tamplates/**/*.jade',['jade-watch'])
 });
 
 gulp.task('default', ['scripts', 'watch']);
