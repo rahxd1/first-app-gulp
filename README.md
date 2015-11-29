@@ -1,11 +1,30 @@
 # Aplicación web con SASS y JADE
 
+### Comandos para instalar node en una distribución basade en ubuntu
+
+```sh
+$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+```
+```sh
+$ sudo apt-get install --yes nodejs
+```
+```sh
+$ sudo apt-get install --yes build-essential
+```
+
+
 ### Comandos para crear la aplicación
 
 Crear el directorio de la aplicación
 ```sh
 $ mkdir miaplicacion
 $ cd miaplicacion
+```
+
+Instalar gulp de manera global
+
+```sh
+$ npm install -g gulp
 ```
 
 Inicializar el proyecto con node
