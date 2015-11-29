@@ -3,35 +3,34 @@
 ### Comandos para crear la aplicación
 
 Crear el directorio de la aplicación
-
-'''sh
+```sh
 $ mkdir miaplicacion
 $ cd miaplicacion
-'''
+```
 
 Inicializar el proyecto con node
 
-'''sh
+```sh
 $ npm init
-'''
+```
 
 Instalar las siguientes dependencias
 
-'''sh
+```sh
 $ npm install --save-dev gulp
-'''
-'''sh
+```
+```sh
 $ npm install --save-dev gulp-sass
-'''
-'''sh
+```
+```sh
 $ npm install --save-dev gulp-uglify
-'''
-'''sh
+```
+```sh
 $ npm install --save-dev gulp-livereload
-'''
-'''sh
+```
+```sh
 $ npm install --save-dev gulp-imagemin
-'''
-'''sh
+```
+```sh
 $ npm install --save-dev gulp-autoprefixer
-'''
+```
