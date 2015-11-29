@@ -34,3 +34,9 @@ $ npm install --save-dev gulp-imagemin
 ```sh
 $ npm install --save-dev gulp-autoprefixer
 ```
+
+Crear gulpfile y configurar el resto :P
+
+```sh
+$ touch gulpfile.js
+```
